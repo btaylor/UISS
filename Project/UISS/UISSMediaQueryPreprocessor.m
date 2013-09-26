@@ -47,6 +47,11 @@
             || ([feature isEqualToString:@"device-height"] && [UIScreen mainScreen].bounds.size.height != value)) {
             return NO;
         }
+        
+        if ([feature isEqualToString:@"os-version"]
+            && [[[UIDevice currentDevice] systemVersion] floatValue] != value) {
+            return NO;
+        }
     }
     return YES;
 }
