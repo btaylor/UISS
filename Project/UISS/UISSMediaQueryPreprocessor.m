@@ -48,8 +48,8 @@
             return NO;
         }
         
-        if ([feature isEqualToString:@"os-version"]
-            && [[[UIDevice currentDevice] systemVersion] floatValue] != value) {
+        if ([feature isEqualToString:@"os-major-version"]
+            && [[[[UIDevice currentDevice] systemVersion] substringToIndex:1] floatValue] != value) {
             return NO;
         }
     }
