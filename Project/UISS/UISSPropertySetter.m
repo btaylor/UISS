@@ -77,6 +77,12 @@
     if (class_getInstanceMethod(class, setter)) {
         return setter;
     }
+
+    setter = NSSelectorFromString([NSString stringWithFormat:@"set%@:forState:",
+                                   [propertyName uppercaseFirstCharacterString]]);
+    if (class_getInstanceMethod(class, setter)) {
+        return setter;
+    }
     return nil;
 }
 
